@@ -1,14 +1,30 @@
 {
   "name": "spacerework-front",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "docker-build": "docker-compose up --build -d",
     "docker-ls": "docker images && docker ps -a",
     "docker-exec": "docker exec -it spacerework-front-container /bin/sh",
     "docker-clean": "docker ps -q | xargs -r docker stop && docker ps -aq | xargs -r docker rm -v && docker network prune -f && docker images -q | xargs -r docker rmi",
     "docker-clean-with-cache": "docker ps -q | xargs -r docker stop && docker ps -aq | xargs -r docker rm -v && docker network prune -f && docker system prune -af --volumes && docker images -q | xargs -r docker rmi" 
+  },
+  "dependencies": {
+    "react": "^19.0.0-rc.1",
+    "react-dom": "^19.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "globals": "^15.11.0",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10"
   },
   "repository": {
     "type": "git",
