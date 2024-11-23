@@ -1,0 +1,24 @@
+{
+  "name": "spacerework-front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker-build": "docker-compose up --build -d",
+    "docker-ls": "docker images && docker ps -a",
+    "docker-exec": "docker exec -it spacerework-front-container /bin/sh",
+    "docker-clean": "docker ps -q | xargs -r docker stop && docker ps -aq | xargs -r docker rm -v && docker network prune -f && docker images -q | xargs -r docker rmi",
+    "docker-clean-with-cache": "docker ps -q | xargs -r docker stop && docker ps -aq | xargs -r docker rm -v && docker network prune -f && docker system prune -af --volumes && docker images -q | xargs -r docker rmi" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spacecodeur/spacerework_front.git"
+  },
+  "author": "Matthieu & Marco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spacecodeur/spacerework_front/issues"
+  },
+  "homepage": "https://github.com/spacecodeur/spacerework_front#readme",
+  "description": "Rework project for the frontend of the famous platform https://www.spacecodeur.com"
+}

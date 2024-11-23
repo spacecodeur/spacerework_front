@@ -1,0 +1,15 @@
+services:
+  front:
+    container_name: spacerework-front-container
+    build:
+      context: . # Chemin du répertoire où se trouve le Dockerfile
+      dockerfile: Dockerfile
+    image: spacerework-front-image
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./dist:/app/dist
+      - ./src:/app/src
+      - ./tests:/app/tests
+      - ./node_modules:/app/node_modules # Osef si il n'existe pas encore dans la machine hôte
+    tty: true
