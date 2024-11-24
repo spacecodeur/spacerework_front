@@ -9,9 +9,7 @@ services:
       - "5173:5173"
     volumes:
       # Les volumes sont montés lors du démarrage du conteneur
-      # Autrement dit : si le dossier dans la machine hôte n'existe pas
-      # ou si il est vide, alors le contenu du dossier côté container
-      # sera vidé
+      # mais avant les commandes CMD / ENTRYPOINT
       - ./public:/app/public
       - ./src:/app/src
       - ./tests:/app/tests

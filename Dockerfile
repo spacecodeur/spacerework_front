@@ -8,10 +8,7 @@ COPY ./tests ./tests
 COPY *.json .
 COPY ./index.html .
 COPY ./vite.config.ts .
-
-# RUN est exécuté pendant la construction de l'image
-RUN npm install
+RUN ["npm", "install"]
 
 EXPOSE 5173
-
-CMD [ "npm", "run", "dev", "--", "--host", "0.0.0.0"]
+ENTRYPOINT [ "npm", "run", "dev", "--", "--host", "0.0.0.0"]
